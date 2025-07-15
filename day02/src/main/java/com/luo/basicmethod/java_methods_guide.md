@@ -1,101 +1,31 @@
-## 🔄 方法重载（Overload）
-> 💡 同一类中允许存在多个同名方法，通过参数列表区分
+# Java 方法详解
 
-### ✅ 定义规则
-1. **方法名必须相同**
-2. **参数列表必须不同**（参数个数、类型或顺序不同）
-3. **返回值类型可以不同**（但不能单独依靠返回值类型区分）
+## 📌 什么是方法？
+方法（Method）是封装特定功能的代码块，可通过方法名重复调用。是 Java 程序的基本组成单元。
 
-### 🧩 使用场景
-| 场景 | 示例 |
-|------|------|
-| **统一接口** | `print(int), print(String)` 统一打印接口 |
-| **功能扩展** | `add(int, int), add(int, int, int)` 不同参数个数 |
-| **类型适配** | `draw(Shape), draw(Circle)` 参数类型不同 |
+```java
+// 示例：定义一个打印方法
+public static void printMessage() {
+    System.out.println("Hello from method!");
+}
+```
 
-### ⚠️ 注意事项
-1. **不能仅通过返回值类型区分**
-   ```java
-   // 编译错误 ❌
-   public int calculate() { return 42; }
-   public double calculate() { return 42.0; } // 仅返回值不同
-   ```
+## 🧱 方法定义语法
+```java
+[访问修饰符] [其他修饰符] 返回值类型 方法名([参数列表]) {
+    // 方法体
+    return [返回值]; // 非void方法必须返回对应类型值
+}
+```
 
-2. **参数顺序不同也算重载**
-   ```java
-   // 合法重载 ✅
-   public void show(int a, String b) {}
-   public void show(String b, int a) {}
-   ```
-
-3. **访问权限可以不同**
-   ```java
-   // 合法定义 ✅
-   public void process() {}
-   private void process(int flag) {}
-   ```
-
-4. **与继承关系处理**
-   - 子类重载父类方法时，访问权限不能更严格
-   - 可以通过 `@Override` 注解明确覆盖关系
-
-## 🚫 void 方法中 return 的特殊用法
-> 💡 在无返回值方法中，return 用于流程控制而非返回数据
-
-### ✅ 核心作用
-1. **提前终止方法执行**
-   ```java
-   public void checkAge(int age) {
-       if (age < 0) {
-           System.out.println("年龄不能为负数");
-           return; // 遇到非法参数立即终止方法
-       }
-       // 正常业务逻辑
-   }
-   ```
-
-2. **强制结束方法调用**
-   ```java
-   public void processTask(boolean isReady) {
-       if (!isReady) {
-           System.out.println("任务未就绪");
-           return; // 满足条件直接结束方法
-       }
-       // 执行耗时操作
-   }
-   ```
-
-### ⚠️ 使用限制
-- **不能携带返回值**
-  ```java
-  // 编译错误 ❌
-  public void showError() {
-      return "错误信息"; // void 方法不能返回值
-  }
-  ```
-
-- **非必需语法元素**
-  ```java
-  // 合法定义 ✅
-  public void sayHello() {
-      System.out.println("Hello World!");
-      // 可以没有 return 语句
-  }
-  ```
-
-### 🧠 使用场景
-| 场景 | 示例 |
-|------|------|
-| **参数校验** | 遇到非法参数提前终止 |
-| **流程控制** | 满足条件跳过后续逻辑 |
-| **调试辅助** | 临时屏蔽部分代码 |
-| **循环中断** | 在循环中配合 break 使用 |
-
-### ✅ 最佳实践
-1. **保持单一出口原则**（非强制）
-2. **配合日志输出**：return 前打印关键信息
-3. **避免过度使用**：多个 return 会降低可读性
-4. **与异常处理区别**：严重错误应使用异常机制
+### 组成要素说明
+| 组成部分 | 说明 |
+|----------|------|
+| **访问修饰符** | `public/private/protected` 控制访问权限 |
+| **其他修饰符** | `static/final/abstract` 等（可选） |
+| **返回值类型** | `void` 表示无返回值，否则需匹配返回值类型 |
+| **方法名** | 遵循大驼峰命名法（UpperCamelCase） |
+| **参数列表** | 多个参数需指定类型，逗号分隔（形参） |
 
 ## ⚠️ 语法注意事项
 1. **参数必须声明类型**
@@ -208,7 +138,5 @@ public class MethodDemo {
 2. **用 main 方法测试**：通过 `main` 方法验证其他方法功能
 3. **逐步理解栈内存**：方法调用时的内存分配机制
 4. **掌握调试技巧**：使用 IDEA 的 Step Into(F7) 观察执行流程
-5. **练习方法重载**：尝试为同一个功能实现多种参数版本
-6. **理解 return 机制**：掌握 void 方法的流程控制方式
 
 > 💡 提示：所有方法都必须定义在类中，Java 没有全局函数的概念

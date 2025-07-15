@@ -2,12 +2,20 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="day03" />
         <module name="day02" />
+        <module name="leecode" />
         <module name="day01" />
+        <module name="day07-oop" />
+        <module name="day08-oop" />
+        <module name="day06" />
+        <module name="day05" />
+        <module name="day04" />
       </profile>
     </annotationProcessing>
   </component>

@@ -6,10 +6,17 @@
       <list>
         <option value="$PROJECT_DIR$/day01/pom.xml" />
         <option value="$PROJECT_DIR$/day02/pom.xml" />
+        <option value="$PROJECT_DIR$/day03/pom.xml" />
+        <option value="$PROJECT_DIR$/day04/pom.xml" />
+        <option value="$PROJECT_DIR$/day05/pom.xml" />
+        <option value="$PROJECT_DIR$/leecode/pom.xml" />
+        <option value="$PROJECT_DIR$/day06/pom.xml" />
+        <option value="$PROJECT_DIR$/day07/pom.xml" />
+        <option value="$PROJECT_DIR$/day08-oop/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21_PREVIEW" project-jdk-name="21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
